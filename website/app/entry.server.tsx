@@ -19,9 +19,9 @@ export default function handleRequest(
   // Refuse connection if host does not match booksta.rs or subdomain of booksta.rs
   if (!request.headers.get("host")?.endsWith("booksta.rs")) {
     logger.info(
-      `Blocking: ${request.method}: ${request.url} from ${request.headers.get(
-        "cf-connecting-ip"
-      )} (${request.headers.get("cf-ipcountry")})`
+      `Blocking: ${request.method}: ${
+        request.url
+      } fwd for ${request.headers.get("x-forwarded-for")}`
     );
 
     return new Response(null, { status: 404 });
