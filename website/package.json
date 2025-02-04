@@ -19,6 +19,7 @@
     "vite-plugin-favicon": "^1.0.8"
   },
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.7.4",
     "@react-router/dev": "^7.1.5",
     "@tailwindcss/vite": "^4.0.0",
     "@types/node": "^20",
