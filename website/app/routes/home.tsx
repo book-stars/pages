@@ -10,6 +10,5 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  logger.info("Home");
   return <Welcome />;
 }

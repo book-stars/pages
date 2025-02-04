@@ -10,21 +10,22 @@ const config = {
 
 } as any
 
-if (import.meta.env.DEV) {
-    config.transport.targets.push({
-        target: 'pino-pretty',
-        options: {
-            colorize: true
-        }
-    })
-} else {
-    config.transport.targets.push({
-        target: 'pino/file',
-        options: { destination: 1 } // this writes to STDOUT
-    })
-}
+// if (import.meta.env.DEV) {
+config.transport.targets.push({
+    target: 'pino-pretty',
+    translateTime: true,
+    options: {
+        colorize: true
+    }
+})
+// } else {
+//     config.transport.targets.push({
+//         target: 'pino/file',
+//         options: { destination: 1 } // this writes to STDOUT
+//     })
+// }
 
-console.log("Pino config", config)
+
 export const logger = pino(config);
 
 export default logger

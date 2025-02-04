@@ -7,8 +7,6 @@ import type { RenderToPipeableStreamOptions } from "react-dom/server";
 import { renderToPipeableStream } from "react-dom/server";
 import logger from "./logger";
 
-logger.info("Starting server...");
-
 export const streamTimeout = 5_000;
 
 export default function handleRequest(
@@ -22,7 +20,9 @@ export default function handleRequest(
     let shellRendered = false;
     let userAgent = request.headers.get("user-agent");
 
-    logger.info(request.headers, `${request.method}: ${request.url}`);
+    logger.info(`${request.method}: ${request.url} ${request.headers}`);
+    for (const [key, value] of request.headers.entries())
+      logger.info(`${key}: ${value}`); // request.headers.entries()
 
     // Ensure requests from bots and SPA Mode renders wait for all content to load before responding
     // https://react.dev/reference/react-dom/server/renderToPipeableStream#waiting-for-all-content-to-load-for-crawlers-and-static-generation
