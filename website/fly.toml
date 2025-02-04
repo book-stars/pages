@@ -1,23 +1,28 @@
-app = "bs-page-4871"
-primary_region = "waw"
-kill_signal = "SIGINT"
-kill_timeout = 5
-processes = [ ]
+# fly.toml app configuration file generated for bs-page-4871-staging on 2025-02-04T12:44:27+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'bs-page-4871-staging'
+primary_region = 'waw'
+kill_signal = 'SIGINT'
+kill_timeout = '5s'
 swap_size_mb = 512
 
 [experimental]
-allowed_public_ports = [ ]
-auto_rollback = true
+  auto_rollback = true
+
+[build]
 
 [http_service]
-internal_port = 3000
-force_https = true
-auto_stop_machines = 'stop'
-auto_start_machines = true
-min_machines_running = 0
-processes = ['app']
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
 
 [[vm]]
-size = 'shared-cpu-1x'
-memory = "256mb"
-count = 1
+  size = 'shared-cpu-1x'
+  memory = "256mb"
+  count = 1
