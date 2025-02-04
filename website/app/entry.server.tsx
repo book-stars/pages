@@ -20,13 +20,7 @@ export default function handleRequest(
     let shellRendered = false;
     let userAgent = request.headers.get("user-agent");
 
-    logger.info(
-      request.method,
-      request.url,
-      request.headers.get("CF-Connecting-IP"),
-      request.headers.get("CF-IPCountry"),
-      request.headers
-    );
+    logger.info(request.method, request.url, request.headers);
 
     // Ensure requests from bots and SPA Mode renders wait for all content to load before responding
     // https://react.dev/reference/react-dom/server/renderToPipeableStream#waiting-for-all-content-to-load-for-crawlers-and-static-generation
