@@ -1,0 +1,5 @@
+**/.env*
+node_modules
+payload/.next/
+website/build/
+**/.DS_Store
