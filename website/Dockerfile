@@ -1,7 +1,7 @@
 # syntax = docker/dockerfile:1
 ARG PNPM_VERSION=10.2.0
-ARG PNPM_HOME="/pnpm"
-ARG PATH="$PNPM_HOME:$PATH"
+# ARG PNPM_HOME="/pnpm"
+# ARG PATH="$PNPM_HOME:$PATH"
 
 # Adjust NODE_VERSION as desired
 ARG NODE_VERSION=23.6.0
@@ -23,10 +23,10 @@ FROM base AS build
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python-is-python3
 
+COPY .npmrc package.json pnpm-lock.yaml ./
 RUN npm install -g pnpm@${PNPM_VERSION}
 
 # Install node modules
-COPY package.json ./
 RUN pnpm install --include=dev
 
 # Copy application code
