@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  /* Fonts */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* Colors */
+  --color-primary: #0F503C;
+  --color-primary-light: #009b77;
+  --color-primary-dark: #0A2E22;
+
+  --color-secondary: #FFC857;
+  --color-secondary-light: #FFDB89;
+  --color-secondary-dark: #D9A746;
+
+  --color-success: #28A745;
+  --color-success-light: #65D39E;
+  --color-success-dark: #1F7A3D;
+
+  --color-info: #007BFF;
+  --color-info-light: #66B3FF;
+  --color-info-dark: #0056B3;
+
+  --color-warning: #FFC107;
+  --color-warning-light: #FFDB73;
+  --color-warning-dark: #D39E00;
+
+  --color-error: #DC3545;
+  --color-error-light: #F28B94;
+  --color-error-dark: #A71E2B;
+
+  --color-background-light: #ead5bb;
+  --color-background-dark: #121212;
+
+  --color-surface-light: #FFFFFF;
+  --color-surface-dark: #1E1E1E;
+
+  --color-text-primary-light: #0F503C;
+  --color-text-primary-dark: #E5F2EC;
+
+  --color-text-secondary-light: #4B4B4B;
+  --color-text-secondary-dark: #C0C0C0;
+
+  --color-text-muted-light: #757575;
+  --color-text-muted-dark: #9A9A9A;
+
+  --color-border-light: #E0E0E0;
+  --color-border-dark: #292929;
+
+  --color-shadow-light: #D1D1D1;
+  --color-shadow-dark: #00000066;
+
+}
+
+html,
+body {
+  @apply bg-background-light ;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "remix-payload-monorepo",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:payload": "cd payload && pnpm dev",
+    "dev:website": "cd website && pnpm dev",
+    "build:website": "cd website && pnpm build",
+    "start:website": "cd website && pnpm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@payloadcms/db-sqlite": "^3.20.0"
+  }
+}
