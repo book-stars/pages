@@ -14,8 +14,10 @@ const config = {
 config.transport.targets.push({
     target: 'pino-pretty',
     translateTime: true,
+
     options: {
-        colorize: true
+        colorize: true,
+        destination: 1
     }
 })
 // } else {
