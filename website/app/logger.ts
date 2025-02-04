@@ -24,6 +24,7 @@ if (import.meta.env.DEV) {
     })
 }
 
+console.log("Pino config", config)
 export const logger = pino(config);
 
 export default logger
