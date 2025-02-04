@@ -1,6 +1,6 @@
 #/bin/sh
 
-dotenv --file website/.env run docker build -t bookstars/pages:latest \
+dotenv --file .env run docker build -t bookstars/pages:latest \
     --secret id=payload_secret,env=PAYLOAD_SECRET \
     --secret id=database_uri,env=DATABASE_URI \
     --secret id=database_auth_token,env=DATABASE_AUTH_TOKEN \
