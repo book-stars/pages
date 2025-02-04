@@ -17,8 +17,15 @@ export default function handleRequest(
   loadContext: AppLoadContext
 ) {
   // Refuse connection if host does not match booksta.rs or subdomain of booksta.rs
-  if (!request.headers.get("host")?.endsWith("booksta.rs"))
+  if (!request.headers.get("host")?.endsWith("booksta.rs")) {
+    logger.info(
+      `Blocking: ${request.method}: ${request.url} from ${request.headers.get(
+        "cf-connecting-ip"
+      )} (${request.headers.get("cf-ipcountry")})`
+    );
+
     return new Response(null, { status: 404 });
+  }
 
   return new Promise((resolve, reject) => {
     let shellRendered = false;
@@ -29,8 +36,6 @@ export default function handleRequest(
         "cf-connecting-ip"
       )} (${request.headers.get("cf-ipcountry")})`
     );
-    for (const [key, value] of request.headers.entries())
-      logger.info(`${key}: ${value}`); // request.headers.entries()
 
     // Ensure requests from bots and SPA Mode renders wait for all content to load before responding
     // https://react.dev/reference/react-dom/server/renderToPipeableStream#waiting-for-all-content-to-load-for-crawlers-and-static-generation
