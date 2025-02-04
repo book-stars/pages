@@ -1,5 +1,5 @@
 # syntax = docker/dockerfile:1
-ARG PNPM_VERSION=9.15.5
+ARG PNPM_VERSION=10.2.0
 ARG PNPM_HOME="/pnpm"
 ARG PATH="$PNPM_HOME:$PATH"
 
