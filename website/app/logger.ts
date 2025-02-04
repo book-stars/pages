@@ -1,6 +1,8 @@
 import pino from "pino";
 
-const config = {} as any
+const config = {
+    level: import.meta.env.LOG_LEVEL || 'debug',
+} as any
 
 if (import.meta.env.DEV) {
     config.transport = {
