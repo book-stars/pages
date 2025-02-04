@@ -90,6 +90,9 @@ importers:
       pino:
         specifier: ^9.6.0
         version: 9.6.0
+      pino-pretty:
+        specifier: ^13.0.0
+        version: 13.0.0
       react:
         specifier: ^19.0.0
         version: 19.0.0
