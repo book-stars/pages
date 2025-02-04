@@ -1,8 +1,5 @@
 import pino from "pino";
-// import pretty from 'pino-pretty'
-// const stream = pretty({
-//     colorize: true
-// })
+
 const config = {
     level: import.meta.env.LOG_LEVEL || 'debug',
     transport: {
@@ -15,8 +12,8 @@ const config = {
 // if (import.meta.env.DEV) {
 config.transport.targets.push({
     target: 'pino-pretty',
-    translateTime: true,
-
+    // translateTime: true,
+    ignore: 'time',
     options: {
         colorize: true,
         destination: 1

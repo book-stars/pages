@@ -16,11 +16,19 @@ export default function handleRequest(
   routerContext: EntryContext,
   loadContext: AppLoadContext
 ) {
+  // Refuse connection if host does not match booksta.rs or subdomain of booksta.rs
+  if (!request.headers.get("host")?.endsWith("booksta.rs"))
+    return new Response(null, { status: 404 });
+
   return new Promise((resolve, reject) => {
     let shellRendered = false;
     let userAgent = request.headers.get("user-agent");
 
-    logger.info(`${request.method}: ${request.url} ${request.headers}`);
+    logger.info(
+      `${request.method}: ${request.url} from ${request.headers.get(
+        "cf-connecting-ip"
+      )} (${request.headers.get("cf-ipcountry")})`
+    );
     for (const [key, value] of request.headers.entries())
       logger.info(`${key}: ${value}`); // request.headers.entries()
 
