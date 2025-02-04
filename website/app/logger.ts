@@ -11,20 +11,20 @@ const config = {
 } as any
 
 // if (import.meta.env.DEV) {
-config.transport.targets.push({
-    target: 'pino-pretty',
-    translateTime: true,
+// config.transport.targets.push({
+//     target: 'pino-pretty',
+//     translateTime: true,
 
-    options: {
-        colorize: true,
-        destination: 1
-    }
-})
+//     options: {
+//         colorize: true,
+//         destination: 1
+//     }
+// })
 // } else {
-//     config.transport.targets.push({
-//         target: 'pino/file',
-//         options: { destination: 1 } // this writes to STDOUT
-//     })
+config.transport.targets.push({
+    target: 'pino/file',
+    options: { destination: 1 } // this writes to STDOUT
+})
 // }
 
 
